@@ -1,5 +1,7 @@
 package org.altervista.zhen.MusicalElements;
 
+import com.sun.istack.internal.Nullable;
+
 /**
  * Represents a musical pitch
  */
@@ -8,22 +10,26 @@ public class Pitch
 	//interval constants in semitones
 	static final int MAX_NUM_OF_SEMITONES_BETWEEN_PITCHES = 9; //major 6th
 	static final int TRITONE = 6;
+	static final int MAJOR_SECOND = 2;
 	static final int UNISON = 0;
 
-	static final Pitch VOCAL_RANGE_MIN = new Pitch(BasePitch.A, 3);
-	static final Pitch VOCAL_RANGE_MAX = new Pitch(BasePitch.D, 5);
+	static final Pitch VOCAL_RANGE_MIN = new Pitch(BasePitch.A, 3, null);
+	static final Pitch VOCAL_RANGE_MAX = new Pitch(BasePitch.D, 5, null);
 
 	public final BasePitch basePitch;
 	public final int octave;
+	public final ScaleDegree scaleDegree;
 
 	/**
 	 * @param basePitch_loc The pitch
 	 * @param octave_loc The octave (use scientific octave notation)
+	 * @param scaleDegree_loc The scale degree (optional, can be null)
 	 */
-	public Pitch(BasePitch basePitch_loc, int octave_loc)
+	public Pitch(BasePitch basePitch_loc, int octave_loc, @Nullable ScaleDegree scaleDegree_loc)
 	{
 		basePitch = basePitch_loc;
 		octave = octave_loc;
+		scaleDegree = scaleDegree_loc;
 	}
 
 	//works

@@ -209,7 +209,7 @@ public class Melody
 
 		//tritone checks should not be necessary for the last note
 		//same octave marker
-		Pitch testPitch = new Pitch(basePitchLastMelNote, pitchOfSecondToLastMelNote.octave);
+		Pitch testPitch = new Pitch(basePitchLastMelNote, pitchOfSecondToLastMelNote.octave, null);
 		if (Math.abs(Pitch.getSemitonesBetweenPitches(testPitch, pitchOfSecondToLastMelNote)) <= Pitch.MAX_NUM_OF_SEMITONES_BETWEEN_PITCHES)
 		{
 			pitchLastMelNote = testPitch;
@@ -217,7 +217,7 @@ public class Melody
 		else
 		{
 			//higher octave marker
-			testPitch = new Pitch(basePitchLastMelNote, pitchOfSecondToLastMelNote.octave + 1);
+			testPitch = new Pitch(basePitchLastMelNote, pitchOfSecondToLastMelNote.octave + 1, null);
 			if (Math.abs(Pitch.getSemitonesBetweenPitches(testPitch, pitchOfSecondToLastMelNote)) <= Pitch.MAX_NUM_OF_SEMITONES_BETWEEN_PITCHES)
 			{
 				pitchLastMelNote = testPitch;
@@ -225,7 +225,7 @@ public class Melody
 			else
 			{
 				//lower octave marker
-				pitchLastMelNote = new Pitch(basePitchLastMelNote, pitchOfSecondToLastMelNote.octave - 1);
+				pitchLastMelNote = new Pitch(basePitchLastMelNote, pitchOfSecondToLastMelNote.octave - 1, null);
 			}
 		}
 		MelodicNote lastMelNote = new MelodicNote

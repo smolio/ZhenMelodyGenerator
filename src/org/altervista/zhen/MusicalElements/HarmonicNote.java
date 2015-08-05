@@ -116,7 +116,8 @@ public class HarmonicNote
 		if (lastMelodicNoteOfPreviousHarmonicNote == null)
 		{
 			//this harmonic note is the 1st harmonic note in the melody
-			mMelNotes[0].setPitch(new Pitch(mParentMelody.getKeySignature().getPitchBasedOnScaleDegree(Pitch.ScaleDegree.ONE), 4)); //any note in the 4th octave is within range
+			//any note in the 4th octave is within range
+			mMelNotes[0].setPitch(new Pitch(mParentMelody.getKeySignature().getPitchBasedOnScaleDegree(Pitch.ScaleDegree.ONE), 4, Pitch.ScaleDegree.ONE));
 		}
 		else
 		{
@@ -130,6 +131,7 @@ public class HarmonicNote
 		for (int i = 1; i < mMelNotes.length; i++)
 		{
 			Pitch[] possiblePitches = mMelNotes[i].getPossiblePitches(mMelNotes[i-1]);
+			if (possiblePitches.length == 0) System.out.println("possiblePitches == 0");
 			int randIntPitchIndex = (int)(Math.random() * possiblePitches.length); //Range: [0, length) = [0, length-1]
 			mMelNotes[i].setPitch(possiblePitches[randIntPitchIndex]);
 		}

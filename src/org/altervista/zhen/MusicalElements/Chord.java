@@ -39,8 +39,8 @@ public enum Chord {
 		{
 			case I:
 			case i:
-				if (randInt < 750) return V7;//0-749
-				else return viiDim;//750-999
+				if (randInt < 900) return V7;//0-899
+				else return viiDim;//900-999
 			case ii:
 				if (randInt < 500) return I; //0-499
 				else if (randInt >= 750) return vi; //750-999
@@ -50,44 +50,40 @@ public enum Chord {
 				else if (randInt >= 750) return VI; //750-999
 				else return iv; //500-749
 			case IV:
-				if (randInt < 666) return I; //0-665
-				else return vi; //666-999
+				if (randInt < 900) return I; //0-899
+				else return vi; //900-999
 			case iv:
-				if (randInt < 666) return i; //0-665
-				else return VI; //666-999
+				if (randInt < 900) return i; //0-899
+				else return VI; //900-999
 			case V7:
 				if (keySigIsMajor)
 				{
-					if (randInt < 250) return I; //0-249
-					else if (randInt < 313) return ii; //250-312
-					else if (randInt < 562) return IV; //313-561
-					else if (randInt < 750) return V_V; //562-749
-					else if (randInt < 875) return vi; //750-874
-					else return viiDim; //875-999
+					if (randInt < 100) return I; //0-99
+					else if (randInt < 300) return ii; //100-299
+					else if (randInt < 750) return IV; //300-749
+					else if (randInt < 825) return V_V; //750-824
+					else if (randInt < 900) return vi; //825-899
+					else return viiDim; //900-999
 				}
 				else
 				{
-					if (randInt < 250) return i; //0-249
-					else if (randInt < 313) return iiDim; //250-312
-					else if (randInt < 562) return iv; //313-561
-					else if (randInt < 750) return V_V; //562-749
-					else if (randInt < 875) return VI; //750-874
-					else return viiDim; //875-999
+					if (randInt < 100) return i;
+					else if (randInt < 300) return iiDim;
+					else if (randInt < 750) return iv;
+					else if (randInt < 825) return V_V;
+					else if (randInt < 900) return VI;
+					else return viiDim;
 				}
 			case V_V:
 				if (keySigIsMajor)
 				{
-					if (randInt < 333) return I; //0-332
-					else if (randInt < 458) return ii; //333-457
-					else if (randInt < 833) return IV; //458-832
-					else return vi; //833-999
+					if (randInt < 250) return ii; //333-457
+					else return IV; //458-832
 				}
 				else
 				{
-					if (randInt < 333) return i; //0-332
-					else if (randInt < 458) return iiDim; //333-457
-					else if (randInt < 833) return iv; //458-832
-					else return VI; //833-999
+					if (randInt < 250) return iiDim; //333-457
+					else return iv; //458-832
 				}
 			case vi:
 			case VI:
