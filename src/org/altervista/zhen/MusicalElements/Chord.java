@@ -77,34 +77,34 @@ public enum Chord {
 			case V_V:
 				if (keySigIsMajor)
 				{
-					if (randInt < 250) return ii; //333-457
-					else return IV; //458-832
+					if (randInt < 100) return ii; //0-99
+					else return IV; //100-999
 				}
 				else
 				{
-					if (randInt < 250) return iiDim; //333-457
-					else return iv; //458-832
+					if (randInt < 100) return iiDim;
+					else return iv;
 				}
 			case vi:
 			case VI:
-				if (randInt < 667) return V7; //0-666
-				else return viiDim; //667-999
+				if (randInt < 900) return V7; //0-899
+				else return viiDim; //900-999
 			case viiDim:
 				if (keySigIsMajor)
 				{
-					if (randInt < 250) return I; //0-249
-					else if (randInt < 344) return ii; //250-343
-					else if (randInt < 625) return IV; //344-625
-					else if (randInt < 875) return V_V; //625-874
-					else return vi; //875-999
+					if (randInt < 100) return I; //0-99
+					else if (randInt < 300) return ii; //100-299
+					else if (randInt < 800) return IV; //300-799
+					else if (randInt < 900) return V_V; //800-899
+					else return vi; //900-999
 				}
 				else
 				{
-					if (randInt < 250) return i; //0-249
-					else if (randInt < 344) return iiDim; //250-343
-					else if (randInt < 625) return iv; //344-625
-					else if (randInt < 875) return V_V; //625-874
-					else return VI; //875-999
+					if (randInt < 100) return i;
+					else if (randInt < 300) return iiDim;
+					else if (randInt < 800) return iv;
+					else if (randInt < 900) return V_V;
+					else return VI;
 				}
 			default:
 				assert false;
