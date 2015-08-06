@@ -37,6 +37,15 @@ public class Melody
 		return mHarmonicNotes;
 	}
 
+	/**
+	 * Restarts melody creation.
+	 */
+	protected void restartMelodyCreation()
+	{
+		mHarmonicNotes = null;
+		makeHarmonicNotes();
+	}
+
 	private void makeHarmonicNotes()
 	{
 		if (mTS.isCompound())

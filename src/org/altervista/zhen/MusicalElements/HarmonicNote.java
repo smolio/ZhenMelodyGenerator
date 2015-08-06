@@ -131,7 +131,13 @@ public class HarmonicNote
 		for (int i = 1; i < mMelNotes.length; i++)
 		{
 			Pitch[] possiblePitches = mMelNotes[i].getPossiblePitches(mMelNotes[i-1]);
-			if (possiblePitches.length == 0) System.out.println("possiblePitches == 0");
+			if (possiblePitches.length == 0)
+			{
+				//make a new melody, discard current melody
+				mParentMelody.restartMelodyCreation();
+				System.out.println("Restart");
+				return;
+			}
 			int randIntPitchIndex = (int)(Math.random() * possiblePitches.length); //Range: [0, length) = [0, length-1]
 			mMelNotes[i].setPitch(possiblePitches[randIntPitchIndex]);
 		}

@@ -68,6 +68,16 @@ public class MelodicNote
 				//ignore #4 -> 4
 				continue;
 			}
+			if (sameOctaveMark.scaleDegree == Pitch.ScaleDegree.SIX_FLAT && previousMelNote.getPitch().scaleDegree == Pitch.ScaleDegree.SEVEN)
+			{
+				//ignore b6 -> 7
+				continue;
+			}
+			if (sameOctaveMark.scaleDegree == Pitch.ScaleDegree.SEVEN && previousMelNote.getPitch().scaleDegree == Pitch.ScaleDegree.SIX_FLAT)
+			{
+				//ignore 7 -> b6
+				continue;
+			}
 			if (Math.abs(Pitch.getSemitonesBetweenPitches(previousMelNote.getPitch(), sameOctaveMark)) == Pitch.TRITONE)
 			{
 				//if the interval between the 2 pitches at the same octave marker is a tritone, then no octave modifications may change the tritone
